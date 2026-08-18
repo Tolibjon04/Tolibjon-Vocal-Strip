@@ -13,7 +13,7 @@ TolibjonProductionAudioProcessorEditor::TolibjonProductionAudioProcessorEditor (
         addAndMakeVisible (s);
 
         l.setText (txt, juce::dontSendNotification);
-        l.setFont (juce::FontOptions (10.5f, juce::Font::bold));
+        l.setFont (juce::Font (10.5f, juce::Font::bold));
         l.setColour (juce::Label::textColourId, juce::Colour (0xff8a96a8));
         l.setJustificationType (juce::Justification::centred);
         addAndMakeVisible (l);
@@ -79,14 +79,14 @@ void TolibjonProductionAudioProcessorEditor::drawVUMeter (juce::Graphics& g, juc
     g.fillRoundedRectangle (inner.removeFromTop (inner.getHeight() * 0.45f), 4.0f);
 
     g.setColour (juce::Colour (0xff2b1d0c));
-    g.setFont (juce::FontOptions (8.5f, juce::Font::bold));
+    g.setFont (juce::Font (8.5f, juce::Font::bold));
     g.drawText ("-20  -10  -5  -3  -1  0  +1  +2  +3", b.getX(), b.getY() + 14, b.getWidth(), 12, juce::Justification::centred);
 
     g.setColour (juce::Colour (0xff8a1a10));
     g.drawText ("+5", b.getRight() - 25, b.getY() + 14, 15, 12, juce::Justification::centred);
 
     g.setColour (juce::Colour (0xff3a2810));
-    g.setFont (juce::FontOptions (12.0f, juce::Font::bold));
+    g.setFont (juce::Font (12.0f, juce::Font::bold));
     g.drawText ("VU", b.getX(), b.getY() + 32, b.getWidth(), 14, juce::Justification::centred);
 
     float needleAngle = juce::jmap (juce::jlimit (0.0f, 1.0f, val), -0.7f, 0.7f);
@@ -99,7 +99,7 @@ void TolibjonProductionAudioProcessorEditor::drawVUMeter (juce::Graphics& g, juc
     g.strokePath (needle, juce::PathStrokeType (1.8f));
 
     g.setColour (juce::Colour (0xff8a96a8));
-    g.setFont (juce::FontOptions (11.0f, juce::Font::bold));
+    g.setFont (juce::Font (11.0f, juce::Font::bold));
     g.drawText (title, b.getX(), b.getBottom() + 4, b.getWidth(), 16, juce::Justification::centred);
 }
 
@@ -113,13 +113,13 @@ void TolibjonProductionAudioProcessorEditor::paint (juce::Graphics& g)
     g.drawRoundedRectangle (getLocalBounds().toFloat().reduced (2.0f), 10.0f, 2.5f);
 
     g.setColour (juce::Colour (0xff00d5f8));
-    g.setFont (juce::FontOptions (22.0f, juce::Font::bold));
+    g.setFont (juce::Font (22.0f, juce::Font::bold));
     g.drawText ("TOLIBJON", 30, 22, 220, 24, juce::Justification::left);
     g.setColour (juce::Colours::white);
     g.drawText ("PRODUCTION", 30, 44, 220, 20, juce::Justification::left);
 
     g.setColour (juce::Colour (0xff8a96a8));
-    g.setFont (juce::FontOptions (10.5f, juce::Font::bold));
+    g.setFont (juce::Font (10.5f, juce::Font::bold));
     g.drawText ("VOCAL COMPRESSOR & SATURATOR", 30, 72, 260, 16, juce::Justification::left);
 
     drawVUMeter (g, juce::Rectangle<float> (380, 22, 175, 95), currentIn, "INPUT");
@@ -148,7 +148,7 @@ void TolibjonProductionAudioProcessorEditor::paint (juce::Graphics& g)
     g.strokePath (cyanCurve, juce::PathStrokeType (1.8f));
 
     g.setColour (juce::Colour (0xff8a96a8));
-    g.setFont (juce::FontOptions (10.0f, juce::Font::bold));
+    g.setFont (juce::Font (10.0f, juce::Font::bold));
     g.drawText ("SATURATION TYPE", 665, 345, 130, 16, juce::Justification::centred);
 }
 
