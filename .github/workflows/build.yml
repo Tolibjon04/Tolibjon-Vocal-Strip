@@ -16,15 +16,13 @@ jobs:
 
     - uses: ilammy/msvc-dev-cmd@v1
 
-    - uses: ninja-build/setup-ninja@v1
-
     - name: Download JUCE
       run: |
         git clone --depth 1 --branch 7.0.12 https://github.com/juce-framework/JUCE.git
 
     - name: Configure CMake
       run: |
-        cmake -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
+        cmake -B build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build VST3 Plugin
       run: |
