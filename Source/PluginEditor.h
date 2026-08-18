@@ -24,16 +24,13 @@ public:
         auto ry = centreY - radius;
         auto rw = radius * 2.0f;
 
-        // Aniq standart soat mili bo'yicha burchaklar: -135 gradusdan +135 gradusgacha
-        float startAngle = -2.35619f; // -135 deg
-        float endAngle   =  2.35619f; // +135 deg
+        float startAngle = -2.35619f;
+        float endAngle   =  2.35619f;
         float currentAngle = startAngle + sliderPosProportional * (endAngle - startAngle);
 
-        // Orqa soya
         g.setColour (juce::Colour (0xff05070a));
         g.fillEllipse (rx - 2.0f, ry - 1.0f, rw + 4.0f, rw + 4.0f);
 
-        // Qora metall asos
         juce::ColourGradient grad (juce::Colour (0xff2b313d), centreX, ry, juce::Colour (0xff12141a), centreX, ry + rw, false);
         g.setGradientFill (grad);
         g.fillEllipse (rx, ry, rw, rw);
@@ -41,13 +38,11 @@ public:
         g.setColour (juce::Colour (0xff414856));
         g.drawEllipse (rx, ry, rw, rw, 1.5f);
 
-        // Orqa nofaol chiziq (Background Arc)
         juce::Path bgArc;
         bgArc.addCentredArc (centreX, centreY, radius + 4.0f, radius + 4.0f, 0.0f, startAngle, endAngle, true);
         g.setColour (juce::Colour (0xff161a22));
         g.strokePath (bgArc, juce::PathStrokeType (4.0f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
 
-        // Faol neon rangli chiziq (Active Arc - soat mili bo'yicha to'ladi)
         if (sliderPosProportional > 0.001f)
         {
             juce::Path activeArc;
@@ -56,7 +51,6 @@ public:
             g.strokePath (activeArc, juce::PathStrokeType (4.0f, juce::PathStrokeType::curved, juce::PathStrokeType::rounded));
         }
 
-        // Ko'rsatkich chizig'i (Pointer)
         juce::Path p;
         p.addRoundedRectangle (-2.0f, -radius + 3.0f, 4.0f, radius * 0.45f, 1.5f);
         p.applyTransform (juce::AffineTransform::rotation (currentAngle).translated (centreX, centreY));
